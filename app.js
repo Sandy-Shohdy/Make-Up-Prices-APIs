@@ -1,6 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
 const productRoutes = require("./routes/productRoutes");
 
 const app = express();
@@ -10,7 +9,7 @@ mongoose
   .then(() => console.log("MongoDB connected with Mongoose"))
   .catch((err) => console.error(err));
 
-app.use(express.json()); // allows JSON body in POST
+app.use(express.json());
 
 app.use("/api/products", productRoutes);
 
@@ -19,7 +18,6 @@ app.get("/", (req, res) => {
 });
 
 const PORT = 5001;
-
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
